@@ -1,0 +1,81 @@
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: ParamHelpers
+Loading required package: splines
+Loading required package: gamlss.data
+
+Attaching package: ‘gamlss.data’
+
+The following object is masked from ‘package:mlr’:
+
+    db
+
+Loading required package: gamlss.dist
+Loading required package: MASS
+
+Attaching package: ‘MASS’
+
+The following object is masked from ‘package:plotly’:
+
+    select
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:dplyr’:
+
+    collapse
+
+Loading required package: parallel
+ **********   GAMLSS Version 5.0-2  ********** 
+For more on GAMLSS look at http://www.gamlss.org/
+Type gamlssNews() to see new features/changes/bug fixes.
+
+
+Listening on http://127.0.0.1:34899
+Warning in max(dt$Age) :
+  no non-missing arguments to max; returning -Inf
+Warning in max(dt$AvgWeight) :
+  no non-missing arguments to max; returning -Inf
+Warning: Removed 3 rows containing missing values (geom_rect).
+Warning in max(dt$Age) :
+  no non-missing arguments to max; returning -Inf
+Warning in max(dt$AvgWeight) :
+  no non-missing arguments to max; returning -Inf
+Warning: Removed 3 rows containing missing values (geom_rect).

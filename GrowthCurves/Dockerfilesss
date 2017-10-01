@@ -1,0 +1,51 @@
+FROM rocker/shiny:latest 
+
+MAINTAINER Ioannis Zarifis
+
+RUN apt-get update
+RUN sudo apt-get install libiodbc2-dev
+RUN sudo apt-get install unixodbc unixodbc-dev freetds-dev tdsodbc
+RUN sudo apt-get install libxml2-dev
+RUN sudo su 
+RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+RUN curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+RUN exit
+RUN sudo apt-get update
+RUN sudo ACCEPT_EULA=Y apt-get install msodbcsql
+RUN sudo apt-get install unixodbc-dev
+
+
+
+# install additional packages
+RUN R -e "install.packages(c('tidyverse','shinydashboard', 'dplyr', 'ggplot2', 'stringi', 'RSQLite', 'DT','RODBC','dplyr','plotly','mlr','gamlss','shinycssloaders','shinyBS','Cairo','ggthemes','ggrepel'), repos='https://cran.rstudio.com/')"
+
+CMD ["/usr/bin/shiny-server.sh"]
+
+
+
+FROM rocker/shiny:latest 
+
+MAINTAINER Ioannis Zarifis
+
+RUN apt-get update && apt-get install -y \
+    libiodbc2-dev \
+    unixodbc  freetds-dev tdsodbc \
+    libxml2-dev
+#RUN sudo su 
+#RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+#RUN curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > /etc/apt/sources.list.d/mssql-release.list
+#RUN exit
+#RUN sudo apt-get update
+#RUN sudo ACCEPT_EULA=Y apt-get install msodbcsql
+
+
+
+# install additional packages
+RUN R -e "install.packages(c('shinydashboard', 'dplyr', 'ggplot2', 'stringi', 'RSQLite', 'DT','RODBC','dplyr','plotly','mlr','gamlss','shinycssloaders','shinyBS','Cairo','ggthemes','ggrepel'), repos='https://cran.rstudio.com/')"
+
+CMD ["/usr/bin/shiny-server.sh"]
+
+
+
+
+
