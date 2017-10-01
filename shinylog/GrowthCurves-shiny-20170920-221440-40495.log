@@ -1,0 +1,77 @@
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: ParamHelpers
+Loading required package: splines
+Loading required package: gamlss.data
+
+Attaching package: ‘gamlss.data’
+
+The following object is masked from ‘package:mlr’:
+
+    db
+
+Loading required package: gamlss.dist
+Loading required package: MASS
+
+Attaching package: ‘MASS’
+
+The following object is masked from ‘package:plotly’:
+
+    select
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:dplyr’:
+
+    collapse
+
+Loading required package: parallel
+ **********   GAMLSS Version 5.0-2  ********** 
+For more on GAMLSS look at http://www.gamlss.org/
+Type gamlssNews() to see new features/changes/bug fixes.
+
+Warning in odbcDriverConnect("driver={SQL Server Native Client 11.0};server= 10.1.1.120;Database=AquaGrowth3;Uid=sa;Pwd=1q2w3e!Q@W#E") :
+  [RODBC] ERROR: state 01000, code 0, message [unixODBC][Driver Manager]Can't open lib 'SQL Server Native Client 11.0' : file not found
+Warning in odbcDriverConnect("driver={SQL Server Native Client 11.0};server= 10.1.1.120;Database=AquaGrowth3;Uid=sa;Pwd=1q2w3e!Q@W#E") :
+  ODBC connection failed
+Error in sqlQuery(dbhandle, "SELECT    ROW_NUMBER() OVER ( PARTITION BY D.CageLotID order by D.CageLotID,CLTranTransDate) AS ROWNUM,\n                     P.Designation AS REGION\n                     ,D.[CageLotID]\n                     ,convert(varchar(50),D.[CageLotID]) + convert(varchar(8),CLTranTransDate,112) AS uniqueID\n                     ,c.designation as CAGENAME\n                     ,c.designation + ' | ' + L.Designation as CAGELOT\n                     ,[CLTranTransDate] AS TRANSACTIONDATE\n                     ,convert(varchar(8),CLTranTransDate,112) AS DATEKEY\n                     ,[TransactionMAB] AS AvgWeight\n                     ,G.PopulationDate\n                     ,DATEDIFF(day,G.PopulationDate,CLTranTransDate) as Age\n                     ,YEAR(PopulationDate) ORIGINYEAR\n                     ,MONTH(PopulationDate) ORIGINMONTH\n                     ,S.Designation as SPECIE\n                     ,L.Designation as LOT\n                     ,R.Designation AS GRADING\n                     ,H.Designation as HATCHERY\n                     ,L.MAB AS LotStartAvgWeight\n                     ,'Sampling' as TypeOfMeasure\n                     ,'Included' as ToGraph\n                     FROM [Aquagrowth3].[dbo].[CLTransDetails] D\n                     inner join [Aquagrowth3].[dbo].CageLot G\n                     on G.CageLotID = D.CageLotID\n                     inner join [Aquagrowth3].[dbo].LOT L\n                     on L.LotID = G.LotID\n                     inner join [Aquagrowth3].[dbo].Species S\n                     on S.SpeciesID = L.SpeciesID\n                     inner join [Aquagrowth3].[dbo].GradingCategory R\n                     on R.GradingID = G.CageLotGradingID\n                     INNER JOIN [Aquagrowth3].[dbo].[HATCHERY] H\n                     ON H.HatcheryID = L.HatcheryID\n                     INNER JOIN [Aquagrowth3].[dbo].[CAGE] C\n                     ON C.CAGEID = G.CAGEID\n                     INNER JOIN [Aquagrowth3].[dbo].[Site] ST\n                     ON ST.SiteID = C.SiteID\n                     INNER JOIN [Aquagrowth3].[dbo].[SiteGroup] P\n                     ON P.SiteGroupID = ST.SiteGroupID\n                     where CLTranTransKindID = 4 \n                     and IsVirtualSampling = 0 \n                     and PopulationDate > '2013-12-31'\n                     and YEAR(L.PurchaseDate) > 2013\n                     \n                     \n                     UNION ALL\n                     \n                     SELECT \n                     ROW_NUMBER() OVER ( PARTITION BY D.CageLotID order by D.CageLotID,CLTranTransDate) AS ROWNUM,\n                     P.Designation AS REGION\n                     ,D.[CageLotID]\n                     ,convert(varchar(50),D.[CageLotID]) + convert(varchar(8),CLTranTransDate,112) AS uniqueID\n                     ,c.designation as CAGENAME\n                     ,c.designation + ' | ' + L.Designation as CAGELOT\n                     ,[CLTranTransDate] AS TRANSACTIONDATE\n                     ,convert(varchar(8),CLTranTransDate,112) AS DATEKEY\n                     ,[TransactionMAB] AS AvgWeight\n                     ,G.PopulationDate\n                     ,DATEDIFF(day,G.PopulationDate,CLTranTransDate) as Age\n                     ,YEAR(PopulationDate) ORIGINYEAR\n                     ,MONTH(PopulationDate) ORIGINMONTH\n                     ,S.Designation as SPECIE\n                     ,L.Designation as LOT\n                     ,R.Designation AS GRADING\n                     ,H.Designation as HATCHERY\n                     ,L.MAB AS LotStartAvgWeight\n                     ,'Harvest' as TypeOfMeasure\n                     ,'Included' as ToGraph\n                     FROM [Aquagrowth3].[dbo].[CLTransDetails] D\n                     inner join [Aquagrowth3].[dbo].CageLot G\n                     on G.CageLotID = D.CageLotID\n                     inner join [Aquagrowth3].[dbo].LOT L\n                     on L.LotID = G.LotID\n                     inner join [Aquagrowth3].[dbo].Species S\n                     on S.SpeciesID = L.SpeciesID\n                     inner join [Aquagrowth3].[dbo].GradingCategory R\n                     on R.GradingID = G.CageLotGradingID\n                     INNER JOIN [Aquagrowth3].[dbo].[HATCHERY] H\n                     ON H.HatcheryID = L.HatcheryID\n                     INNER JOIN [Aquagrowth3].[dbo].[CAGE] C\n                     ON C.CAGEID = G.CAGEID\n                     INNER JOIN [Aquagrowth3].[dbo].[Site] ST\n                     ON ST.SiteID = C.SiteID\n                     INNER JOIN [Aquagrowth3].[dbo].[SiteGroup] P\n                     ON P.SiteGroupID = ST.SiteGroupID\n                     where CLTranTransKindID = 8 and IsSampling = 1\n                     and IsSampling = 1\n                     and PopulationDate > '2013-12-31'\n                     and YEAR(L.PurchaseDate) > 2013",  : 
+  first argument is not an open RODBC channel
+Calls: runApp ... sourceUTF8 -> eval -> eval -> ..stacktraceon.. -> sqlQuery
+Execution halted

@@ -1,0 +1,209 @@
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘plotly’
+
+The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+The following object is masked from ‘package:stats’:
+
+    filter
+
+The following object is masked from ‘package:graphics’:
+
+    layout
+
+Loading required package: ParamHelpers
+Loading required package: splines
+Loading required package: gamlss.data
+
+Attaching package: ‘gamlss.data’
+
+The following object is masked from ‘package:mlr’:
+
+    db
+
+Loading required package: gamlss.dist
+Loading required package: MASS
+
+Attaching package: ‘MASS’
+
+The following object is masked from ‘package:plotly’:
+
+    select
+
+The following object is masked from ‘package:dplyr’:
+
+    select
+
+Loading required package: nlme
+
+Attaching package: ‘nlme’
+
+The following object is masked from ‘package:dplyr’:
+
+    collapse
+
+Loading required package: parallel
+ **********   GAMLSS Version 5.0-2  ********** 
+For more on GAMLSS look at http://www.gamlss.org/
+Type gamlssNews() to see new features/changes/bug fixes.
+
+
+Listening on http://127.0.0.1:36015
+Warning in max(dt$Age) :
+  no non-missing arguments to max; returning -Inf
+Warning in max(dt$AvgWeight) :
+  no non-missing arguments to max; returning -Inf
+Warning: Removed 3 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+`geom_smooth()` using method = 'loess'
+Warning: Removed 5 rows containing missing values (geom_smooth).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning in RS() : Algorithm RS has not yet converged
+Warning in RS() : Algorithm RS has not yet converged
+Warning in RS() : Algorithm RS has not yet converged
+Joining, by = "Age"
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c311bae1d"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+`geom_smooth()` using method = 'loess'
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c756ec029"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c477577cd"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c23df5551"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c361690f5"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c64e89e59"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c238752a4"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c2de40b6f"; Shiny doesn't use them
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c50ca598d"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c102302b6"; Shiny doesn't use them
+Warning: Ignoring unknown aesthetics: text
+We recommend that you use the dev version of ggplot2 with `ggplotly()`
+Install it with: `devtools::install_github('hadley/ggplot2')`
+Warning in origRenderFunc() :
+  Ignoring explicitly provided widget ID "2c299609e4"; Shiny doesn't use them
+Warning in max(dt$Age) :
+  no non-missing arguments to max; returning -Inf
+Warning in max(dt$AvgWeight) :
+  no non-missing arguments to max; returning -Inf
+Warning: Removed 3 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning in RS() : Algorithm RS has not yet converged
+Warning in RS() : Algorithm RS has not yet converged
+Warning in predict.gamlss(obj, what = "mu", newdata = newx, type = "response",  :
+  There is a discrepancy  between the original and the re-fit 
+ used to achieve 'safe' predictions 
+ 
+Joining, by = "Age"
+Warning in max(dt$Age) :
+  no non-missing arguments to max; returning -Inf
+Warning in max(dt$AvgWeight) :
+  no non-missing arguments to max; returning -Inf
+Warning: Removed 3 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning in RS() : Algorithm RS has not yet converged
+Warning in RS() : Algorithm RS has not yet converged
+Warning in RS() : Algorithm RS has not yet converged
+Joining, by = "Age"
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning in RS() : Algorithm RS has not yet converged
+Warning in RS() : Algorithm RS has not yet converged
+Warning in RS() : Algorithm RS has not yet converged
+Warning in predict.gamlss(obj, what = "mu", newdata = newx, type = "response",  :
+  There is a discrepancy  between the original and the re-fit 
+ used to achieve 'safe' predictions 
+ 
+Joining, by = "Age"
+`geom_smooth()` using method = 'loess'
+Warning: Removed 1 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).
+Warning: Removed 2 rows containing missing values (geom_rect).

@@ -1,0 +1,10 @@
+
+Attaching package: ‘shinydashboard’
+
+The following object is masked from ‘package:graphics’:
+
+    box
+
+Error in library(RODBC) : there is no package called ‘RODBC’
+Calls: runApp ... sourceUTF8 -> eval -> eval -> ..stacktraceon.. -> library
+Execution halted

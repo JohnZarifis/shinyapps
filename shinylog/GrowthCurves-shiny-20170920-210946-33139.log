@@ -1,0 +1,4 @@
+Error in library(shinydashboard) : 
+  there is no package called ‘shinydashboard’
+Calls: runApp ... sourceUTF8 -> eval -> eval -> ..stacktraceon.. -> library
+Execution halted

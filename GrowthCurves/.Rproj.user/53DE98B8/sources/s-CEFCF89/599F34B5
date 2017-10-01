@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1504705974784.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "599F34B5",
+    "lastKnownWriteTime" : 1505590924,
+    "last_content_update" : 1505590924,
+    "path" : "C:/Users/g.zarifis/Dropbox/GrowthCurves/dashboardBody.R",
+    "project_path" : "dashboardBody.R",
+    "properties" : {
+        "cursorPosition" : "19,6",
+        "scrollLine" : "23",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

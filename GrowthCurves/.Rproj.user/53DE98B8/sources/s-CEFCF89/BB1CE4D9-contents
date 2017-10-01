@@ -1,0 +1,108 @@
+# Created 07/03/2016
+# Modified 07/03/2016
+#
+# Working Directory: "D:/Windows_Workspace/R_projects/Project_DataMining_Aquaculture/Ardag_DM_Project"
+#
+# Load Ardag datasets
+
+source('helpers.R')
+source('fit.svm.R')
+
+pathname = paste(getwd(), "Data_Ardag_Bream_Mar_Oct.xlsx", sep="/")
+Dataset <- read_excel(pathname, sheet = 1, col_names = TRUE, na='na')
+Dataset.Bream <- create.dataset(Dataset)
+
+# Remove records with Diff.Days <= 10
+Dataset.Bream <- Dataset.Bream[ Dataset.Bream$Diff.Days>10,]
+
+df <- data.frame("Econ.FCR.Period" = Dataset.Bream$Econ.FCR.Period, 
+                 "SFR.Period"=Dataset.Bream$SFR.Period.Perc,
+                 "SGR.Period"=Dataset.Bream$SGR.Period.Perc,
+                 "Avg.Temp" = Dataset.Bream$Avg.Temp, 
+                 "Start.Av.Weight"=Dataset.Bream$Start.Av.Weight,
+                 "End.Av.Weight" = Dataset.Bream$End.Av.Weight, 
+                 "Period.Feed.Qty" = Dataset.Bream$Period.Feed.Qty,
+                 "Feed.Deviation.Perc" = Dataset.Bream$Feed.Deviation.Perc,
+                 "Diff.Days" = Dataset.Bream$Diff.Days,
+                 "End.Fish.Density"=Dataset.Bream$End.Fish.Density,
+                 "Start.Fish.Density"=Dataset.Bream$Start.Fish.Density,
+                 "Mortality"=Dataset.Bream$Mortality.No,
+                 "Fastings.No" = Dataset.Bream$Fastings.No,
+                 "Origin.Month" = Dataset.Bream$Origin.Month,
+                 "Origin.Year" = Dataset.Bream$Origin.Year,
+                 "From.Month" = Dataset.Bream$From.Month)
+
+
+predictors <- c("Start.Av.Weight", "SFR.Period", "Diff.Days", "Avg.Temp", "SGR.Period")
+response.var <- "Econ.FCR.Period"
+
+# Scatterplot
+png("Scatterplot_Ardag_Bream_Exp1.png", width = 640, height = 480)
+scatterplotMatrix(df[, names(df) %in% c(predictors, response.var) ],pch=19,cex=.5,reg.line=F, 
+                  lwd.smooth=1.25, spread=F,ellipse=T, col=c('gray60','#2957FF','#FF8000'),
+                  col.axis='gray50')
+dev.off()
+
+
+# ------------------------------------- Partition dataset to train and test
+perc = 0.80
+trainIndex <- createDataPartition(df[,1], p = perc,
+                                  list = FALSE, times = 1)
+
+# --------------------------------------------------------------- SVMs
+# Support Vector Machines with Radial Basis Function Kernel
+
+preproc = FALSE  # preProcessing is off
+res.svm.rbf <- fit.svm.rbf( df, predictors, response.var, trainIndex, preproc )
+
+print(res.svm.rbf$RMSE.Test)
+
+#------------------ Variable Importance 
+png("VariableImportance.SVM.RBF_Ardag_Bream_Exp1.png", width = 640, height = 480)
+
+vimport <- data.frame( "Features" = rownames(res.svm.rbf$Variable.Importance$importance), 
+                       "Importance" = round(res.svm.rbf$Variable.Importance$importance$Overall,digits=2) )
+
+p <- ggplot(vimport, aes(x = reorder(Features, -Importance), y = Importance)) +
+  geom_bar(stat = "identity", fill="steelblue") +
+  geom_text(aes(label=Importance), hjust=1.6, color="white", size=3.5) + xlab("Features")+
+  theme_minimal() 
+p <- p + coord_flip() 
+print(p)
+dev.off()
+
+
+# Store test dataset with full details plus SVM prediction, Relative Error and Class 
+#
+Class <- ifelse( abs(res.svm.rbf$Dset.Ts.Preds$Rel.Err) <= 10, "Expected", "Unexpected" )
+Dataset.Test.Pred <- data.frame(cbind(Dataset.Bream[-trainIndex,],
+                                      res.svm.rbf$Dset.Ts.Preds$SVM.RBF.Preds, 
+                                      res.svm.rbf$Dset.Ts.Preds$Rel.Err, Class))
+names(Dataset.Test.Pred) <- c(names(Dataset.Bream), "SVM.RBF.Preds", "Rel.Err", "Class" )
+
+write.csv2(Dataset.Test.Pred, file='Dataset.Test.Pred_Ardag_Bream_Exp1.csv',row.names=TRUE )
+
+
+#------------------ Barplot Test cases vs Relative Error (ggplot)
+ds <- data.frame(rownames(res.svm.rbf$Dset.Ts.Preds), round(res.svm.rbf$Dset.Ts.Preds$Rel.Err,digits=2),
+                 Dataset.Test.Pred$Class)
+colnames(ds) <- c("ID", "Relative_Error", "Class")
+
+png("ggplot_SVM.RBF_Ardag_Bream_Exp1.png", width = 800, height = 640)
+bp <- ggplot(ds, aes(x=ID, y=Relative_Error, fill=Class)) + 
+  geom_bar(stat="identity", position=position_dodge()) + 
+  scale_fill_brewer(palette="Set1") + 
+  xlab("ID Test Cases") + ylab("Relative Error") + 
+  geom_text(aes(label=Relative_Error), hjust=1.0, color="black", size=2.5) +
+  theme(axis.text = element_text(size = 6))
+bp <- bp + coord_flip() 
+print(bp)
+dev.off()
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+dtw <- winterDays(5)
+
+
+p <- ggplot() + geom_point(data = keep ,aes(Age,AvgWeight)) +
+  
+ # geom_point(data = exclude, shape = 21, fill = NA, color = "red", alpha = 0.8) +
+  labs(x = "Age (Days)", y = 'Average Weight(g)') + xlim(0,max(keep$Age)+10)+ ylim(0,max(keep$AvgWeight) + 10) +
+
+#if(input$GraphColor != 'Nothing'){
+  #test <- levels(as.factor(input$GraphColor))
+  
+#  p <- p + aes_string(  color = input$GraphColor  )
+#}
+#if(input$Smoother){
+#  p <- p +  geom_smooth() #+ theme_hc() + scale_colour_hc()
+#}
+#if(length(input$StockingMonth) == 1){
+ 
+ # print(dtw)
+ # p  <- p + 
+    geom_rect(data = dtw,aes(xmin = startDate, xmax = endDate, ymin = 0 , ymax = Inf),color='cyan', alpha=0.2)
+#}
+p 
